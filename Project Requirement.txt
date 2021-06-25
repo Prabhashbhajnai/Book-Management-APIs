@@ -1,0 +1,30 @@
+This is Book management company
+
+We need:
+
+    Books
+        ISBN, title, publication date, language, num page, author[], category[]
+
+    Authors:
+        Id, Name, books[]
+
+    Publication:
+        is, Name, books[]
+
+APIs needed:
+
+    Books:
+        get all books ✅
+        get specific books ✅
+        get list of books based on category ✅
+        get list of books based on languages ✅
+    
+    Authors:
+        get all Authors ✅
+        get specific Authors ✅
+        get list of authors based on books ✅
+
+    Publication:
+        get all publication ✅
+        get specific publication ✅
+        get list of publication based on book ✅
