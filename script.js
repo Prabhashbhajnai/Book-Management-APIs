@@ -68,6 +68,18 @@ Parameter:      language
 Methods:        GET
 */
 
+booky.get("/language/:language", (req, res) => {
+    const getSpecificBook = database.books.filter((book) => 
+        book.language.includes(req.params.language)
+    );
+
+    if (getSpecificBook.length === 0) {
+        return res.json({error: `No book found for ${req.params.language}`});
+    }
+
+    return res.json({book: getSpecificBook});
+});
+
 // Author APIs
 
 /* 
