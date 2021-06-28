@@ -14,17 +14,51 @@ We need:
 APIs needed:
 
     Books:
-        get all books ✅
-        get specific books ✅
-        get list of books based on category ✅
-        get list of books based on languages ✅
+        GET:
+            get all books ✅
+            get specific books ✅
+            get list of books based on category ✅
+            get list of books based on languages ✅
+
+        POST:
+            Add new Book ✅
+        
+        PUT:
+            Update Book title ✅
+            Update/add new Authors ✅
+        
+        DELETE
+            delete a book
+            delete an author
     
     Authors:
-        get all Authors ✅
-        get specific Authors ✅
-        get list of authors based on books ✅
+        GET:
+            get all Authors ✅
+            get specific Authors ✅
+            get list of authors based on books ✅
+
+        POST:
+            add new author ✅
+        
+        PUT:
+            Update author name ✅
+
+        DELETE:
+            delete an author
 
     Publication:
-        get all publication ✅
-        get specific publication ✅
-        get list of publication based on book ✅
+        GET:
+            get all publication ✅
+            get specific publication ✅
+            get list of publication based on book ✅
+
+        POST:
+            Add new publication
+
+        PUT:
+            Update publication name
+            Update/ add books to publication
+
+        DELETE:
+            delete publication
+            delete a book from publication
