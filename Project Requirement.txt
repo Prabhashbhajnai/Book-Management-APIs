@@ -9,7 +9,7 @@ We need:
         Id, Name, books[]
 
     Publication:
-        is, Name, books[]
+        Id, Name, books[]
 
 APIs needed:
 
@@ -53,11 +53,11 @@ APIs needed:
             get list of publication based on book ✅
 
         POST:
-            Add new publication
+            Add new publication 🔥
 
         PUT:
-            Update publication name
-            Update/ add books to publication
+            Update publication name 🔥
+            Update/ add books to publication ✅
 
         DELETE:
             delete publication

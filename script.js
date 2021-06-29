@@ -235,7 +235,7 @@ Parameter:      None
 Methods:        GET
 */
 booky.get("/publication", (req, res) => {
-    return res.json({publication: database.publication});
+    return res.json({publication: database.publications});
 });
 
 /* 
@@ -246,7 +246,7 @@ Parameter:      id
 Methods:        GET
 */
 booky.get("/publication/id/:id", (req, res) => {
-    const getSpecificPublication = database.publication.filter((publication) => 
+    const getSpecificPublication = database.publications.filter((publication) => 
         publication.id === parseInt(req.params.id)
     );
 
@@ -265,7 +265,7 @@ Parameter:      id
 Methods:        GET
 */
 booky.get("/book/publication/:isbn", (req, res) => {
-    const getSpecificPublication = database.publication.filter((publication) => 
+    const getSpecificPublication = database.publications.filter((publication) => 
         publication.books.includes(req.params.isbn)
     );
 
@@ -276,7 +276,33 @@ booky.get("/book/publication/:isbn", (req, res) => {
     return res.json({Publication: getSpecificPublication});
 });
 
- 
+/* 
+Route:          /publication/update/book
+Description:    Update/add new publication
+Access:         Public
+Parameter:      isbn
+Methods:        PUT
+*/
+booky.put("/publication/update/book:isbn", (req, res) => {
+
+    // Update publication database
+    database.publications.forEach((publication) => {
+        if(publication.id === req.body.pubId) {
+            return publication.books.push(req.params.isbn);
+        };
+    });
+
+    // Update book database
+    database.books.forEach((book) => {
+        if(book.ISBN === req.params.isbn) {
+            book.publication = req.body.pubId;
+            return;
+        };
+    });
+
+    return res.json({books: database.books, publications: database.publications});
+    
+});
 
 
 
