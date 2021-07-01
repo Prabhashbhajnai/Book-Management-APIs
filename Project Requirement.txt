@@ -23,7 +23,7 @@ APIs needed:
         GET:
             get all books ✅ 📌
             get specific books ✅ 📌
-            get list of books based on category ✅
+            get list of books based on category ✅ 📌
             get list of books based on languages ✅
 
         POST:
@@ -31,10 +31,10 @@ APIs needed:
         
         PUT:
             Update Book title ✅ 📌
-            Update/add new Authors ✅
+            Update/add new Authors ✅ 📌
         
         DELETE
-            delete a book ✅
+            delete a book ✅ 📌
             delete an author ✅
     
     Authors:
