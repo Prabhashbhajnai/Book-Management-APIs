@@ -1,14 +1,31 @@
+require("dotenv").config();
+
+
+// Framework
 const { res } = require("express");
 const express = require("express");
+const mongoose = require("mongoose");
 
 // Database
-const database = require("./database");
+const database = require("./database/database");
 
 // Initialization
 const booky = express();
 
 //Config
 booky.use(express.json());
+
+// Establish database connection
+mongoose.connect(process.env.MONGO_URL,
+{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+}
+).then(() => console.log("Connection Established"));
+
+
 
 // Book APIs
 
@@ -138,7 +155,53 @@ booky.put("/book/update/author/:isbn/:authorId", (req, res) => {
     return res.json({books: database.books, author: database.authors})
 });
 
+/* 
+Route:          /book/delete
+Description:    delete a book
+Access:         Public
+Parameter:      isbn
+Methods:        DELETE
+*/
+booky.delete("/book/delete/:isbn", (req, res) => {
+   
+    const updatedBookDatabase = database.books.filter((book) => book.ISBN !== req.params.isbn);
 
+    database.books = updatedBookDatabase;
+    return res.json({books: database.books});
+
+});
+
+/* 
+Route:          /book/delete/author
+Description:    delete an author from the book
+Access:         Public
+Parameter:      isbn
+Methods:        DELETE
+*/
+booky.delete("/book/delete/author/:isbn/:authorId", (req, res) => {
+
+    // Update book database
+    database.books.forEach((book) => {
+        if(book.ISBN === req.params.isbn){
+            const newAuthorList = book.author.filter((author) => author !== parseInt(req.params.authorId));
+            book.author = newAuthorList;
+            return;
+        }
+    });
+    
+    // update author database
+    database.authors.forEach((author) => {
+        if(author.id === parseInt(req.params.authorId)){
+            const newBooksList = author.books.filter((book) => book !== req.params.isbn);
+        
+            author.books = newBooksList;
+            return;
+        }
+    });
+
+    return res.json({book: database.books, author: database.authors});
+
+});
 
 
 // Author APIs
@@ -304,6 +367,35 @@ booky.put("/publication/update/book:isbn", (req, res) => {
     
 });
 
+/* 
+Route:          /publication/delete/book
+Description:    Delete a book from publication
+Access:         Public
+Parameter:      isbn, publication id
+Methods:        DELETE
+*/
+booky.delete("/publication/delete/book/:isbn/:pubId", (req, res) => {
 
+    // Update publication database
+    database.publications.forEach((publication) => {
+        if(publication.id === parseInt(req.params.pubId)){
+            const newBooksList = publication.books.filter((book) => book !== req.params.isbn);
+        
+            publication.books = newBooksList;
+            return;
+        }
+    });
+
+    // Update Book database
+    database.books.forEach((book) => {
+        if(book.ISBN === req.params.isbn){
+            book.publication = 0;
+            return;
+        }
+    });
+
+    return res.json({books: database.books, publications: database.publications});
+
+});
 
 booky.listen(3000, () => console.log("Server is Running"));

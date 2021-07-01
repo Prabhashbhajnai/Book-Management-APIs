@@ -28,8 +28,8 @@ APIs needed:
             Update/add new Authors ✅
         
         DELETE
-            delete a book
-            delete an author
+            delete a book ✅
+            delete an author ✅
     
     Authors:
         GET:
@@ -44,7 +44,7 @@ APIs needed:
             Update author name ✅
 
         DELETE:
-            delete an author
+            delete an author 🔥
 
     Publication:
         GET:
@@ -60,5 +60,5 @@ APIs needed:
             Update/ add books to publication ✅
 
         DELETE:
-            delete publication
-            delete a book from publication
+            delete publication 🔥
+            delete a book from publication ✅

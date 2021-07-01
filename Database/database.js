@@ -1,4 +1,4 @@
-const books = [
+let books = [
     {
         ISBN: "12345One",
         title: "Looking for Alaska",
@@ -6,7 +6,7 @@ const books = [
         language: "en",
         numPage: 250,
         author: [1, 2],             //1 and 2 are ids of author
-        publication: [1, 2],
+        publication: 2,
         category: ["tech", "programming", "education"]
     },
     {
@@ -16,7 +16,7 @@ const books = [
         language: "en",
         numPage: 250,
         author: [1, 2],             //1 and 2 are ids of author
-        publication: [1],
+        publication: 1,
         category: ["tech", "programming", "education"]
     },
 ];
