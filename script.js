@@ -7,7 +7,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 // Database
-const database = require("./database/database");
+const database = require("./Database/database");
+
+// Models
+const BookModels = require("./Database/books");
+const AuthorModels = require("./Database/author");
+const PublicationModels = require("./Database/publication");
 
 // Initialization
 const booky = express();
