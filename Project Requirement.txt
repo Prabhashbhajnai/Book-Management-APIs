@@ -14,7 +14,8 @@ We need:
 
 Legend: ✅ API Added
         🔥 Task
-        📌 Connect to MongoDB
+        📌 Connected to MongoDB
+        🟥 Task
 
 APIs needed:
 
@@ -29,7 +30,7 @@ APIs needed:
             Add new Book ✅ 📌
         
         PUT:
-            Update Book title ✅
+            Update Book title ✅ 📌
             Update/add new Authors ✅
         
         DELETE
