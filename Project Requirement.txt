@@ -11,17 +11,22 @@ We need:
     Publication:
         Id, Name, books[]
 
+
+Legend: ✅ API Added
+        🔥 Task
+        📌 Connect to MongoDB
+
 APIs needed:
 
     Books:
         GET:
-            get all books ✅
-            get specific books ✅
+            get all books ✅ 📌
+            get specific books ✅ 📌
             get list of books based on category ✅
             get list of books based on languages ✅
 
         POST:
-            Add new Book ✅
+            Add new Book ✅ 📌
         
         PUT:
             Update Book title ✅
@@ -33,12 +38,12 @@ APIs needed:
     
     Authors:
         GET:
-            get all Authors ✅
+            get all Authors ✅ 📌
             get specific Authors ✅
             get list of authors based on books ✅
 
         POST:
-            add new author ✅
+            add new author ✅ 📌
         
         PUT:
             Update author name ✅
